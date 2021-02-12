@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Old Car Price Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="D:\ML Projects\Used Car Price Prediction\static\css\style.css">
+
+  
+</head>
+
+<body>
+ <div class="login">
+    <center><h1>Old Car Price Predictor</h1></center>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <center><form action="{{ url_for('predict')}}"method="post">
+
+        
+        <input list="company" name = "Company" placeholder="Brand Name" required="required" />
+        <datalist id="company" >
+            <option value="Maruti">
+        </datalist>
+
+        <input list="variant" name = "Variant" placeholder="Car Variant" required="required"  />
+        <datalist id="variant">
+            <option value="Swift Dzire VDI">
+            <option value = "Wagon R LXI Minor">
+            <option value="Ertiga SHVS VDI">
+            <option value="Swift Dzire ZDI">
+            <option value="Baleno Delta 1.2">
+            <option value="Alto 800 LXI">
+            <option value="Omni E MPI STD BS IV">
+            <option value="Vitara Brezza LDi Option">
+            <option value="Vitara Brezza VDi">
+            <option value="Celerio VXI">
+        </datalist>
+
+
+        <input type="age" name="Age" placeholder="Car Age" required="required" min="1" max="18"/>
+
+        <input type="km" name="Km" placeholder="Km Driven" required="required" min="1" max="239451" />
+
+
+        
+        <input list="fuel" name = "Fuel" placeholder="Fuel Type" required="required" />
+        <datalist id="fuel">
+            <option value="Diesel">
+            <option value="Petrol">
+            <option value="CNG">
+            <option value="LPG">
+        </datalist>
+
+
+        <input list="seller" name = "Seller" placeholder="Seller Type" required="required" />
+        <datalist id="seller">
+            <option value="Individual">
+            <option value="Dealer">
+            <option value="Trustmark Dealer">
+        </datalist>
+
+
+        <input list="transmission" name = "Transmission" placeholder="Transmission Type" required="required" />
+        <datalist id="transmission">
+            <option value="Manual">
+            <option value="Automatic">
+        </datalist>
+
+        <input list="ownership" name = "Ownership" placeholder="Number of previous owners" required="required" />
+        <datalist id="ownership">
+            <option value="First Owner">
+            <option value="Second Owner">
+            <option value="Third Owner">
+            <option value="Fourth Owner">
+        </datalist>
+
+        <input type="mileage" name="Mileage" placeholder="Mileage " required="required" min="9" max="30" />
+
+        <input type="engine" name="Engine" placeholder="Engine Capacity (cc)" required="required" min = "624" max="2956" />
+
+        <input type="power" name="Power" placeholder="Max Power (bhp)" required="required" min="32" max="198" />
+
+        <input type="seats" name="Seats" placeholder="Number of seats" required="required" min="4" max="14" />
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form></center>
+
+   <br>
+   <br>
+   <center>{{ prediction_text }}</center>
+
+ </div>
+
+
+</body>
+</html>
